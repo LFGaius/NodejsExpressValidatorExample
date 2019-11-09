@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	Request type:<%=requestType%>
+	<% if(errors){%>
+		<span style="color:red">Error!</span>
+	<%}else{
+		if(success){%>
+		<span style="color:green">Success!</span>
+		<%}
+	}%>
+	<div>
+		<form action="/register" method="POST">
+			
+			<label for="name">Name</label><br/>
+			<input type="text" value="<%=user.name%>" name="name" id="name"/>
+			<% if(errors && errors.name){%>
+				<span style="color:red"><%=errors.name.msg%></span>
+			<%}%>
+			<br/>
+			<label for="email"></label><br/>
+			<input type="text" value="<%=user.email%>" name="email" id="email"/>
+			<% if(errors && errors.email){%>
+				<span style="color:red"><%=errors.email.msg%></span>
+			<%}%>
+			<br/>
+			<label for="password"></label><br/>
+			<input type="password" value="<%=user.password%>" name="password" id="password"/>
+			<% if(errors && errors.password){%>
+				<span style="color:red"><%=errors.password.msg%></span>
+			<%}%>
+			<br/>
+			<button type="submit">Register</button>
+		</form>
+	</div>
+</body>
+</html>
